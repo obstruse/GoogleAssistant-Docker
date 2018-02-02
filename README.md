@@ -9,7 +9,7 @@ To enable access to the Google Assistant API, do the following:
 
     In the Cloud Platform Console, go to the Projects page. Select an existing project or create a new project.
 
-    [Go to the Projects Page](https://console.cloud.google.com/project)
+    [![Go to the Projects Page]](https://console.cloud.google.com/project)
 
     Enable the Google Assistant API on the project you selected (see the Terms of Service).
 
