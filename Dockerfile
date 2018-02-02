@@ -29,6 +29,7 @@ RUN apt-get -qq remove -y --purge python3-pip python3-dev \
 # Copy data
 COPY asoundrc.config /root/.asoundrc
 COPY GA.sh  /root
+RUN chmod +x /root/GA.sh
 
 # Run google-assistant
 CMD /root/GA.sh
