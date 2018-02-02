@@ -1,5 +1,13 @@
 # GoogleAssistant
-Docker build for Google Assistant for Raspberry Pi
+Docker build for Google Assistant on Raspberry Pi.
+
+Intended for use with LibreELEC(Kodi) with Docker and Portainer addons, but not required.
+
+## Hardware
+
+- Raspberry Pi 3 (https://www.adafruit.com/product/3055)
+- USB microphone, (e.g. https://www.adafruit.com/product/3367)
+
 
 ## Configure a Google Developer Project
 
