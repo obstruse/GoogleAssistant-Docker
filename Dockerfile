@@ -1,7 +1,5 @@
 FROM resin/armv7hf-debian:jessie
 
-LABEL description="added python3"
-
 RUN [ "cross-build-start" ]
 
 # Install packages
@@ -37,5 +35,5 @@ RUN [ "cross-build-end" ]
 # Run google-assistant
 CMD /root/GA.sh
 
-# Common directory
+# Persistent directory
 VOLUME /root/.config/google-oauthlib-tool
