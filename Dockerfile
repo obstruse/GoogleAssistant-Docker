@@ -1,18 +1,20 @@
 FROM resin/armv7hf-debian:jessie
 
+LABEL description="added python3"
+
 RUN [ "cross-build-start" ]
 
 # Install packages
 RUN apt-get -qq update
 RUN apt-get -qq install --no-install-recommends -y \
       alsa-utils \
-      gcc \
       python3 \
-      python3-dev \
-      python3-pip \
-      portaudio19-dev \
-      libffi-dev \
-      libssl-dev
+      python3-pip 
+#      python3-dev \
+#      gcc \
+#      portaudio19-dev \
+#      libffi-dev \
+#      libssl-dev
 
 # Upgrade pip and setuptools
 RUN pip3 install -q pip setuptools --upgrade

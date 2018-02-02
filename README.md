@@ -38,4 +38,11 @@ Create an OAuth Client ID with the following steps:
 * Click ⬇ (at the far right of screen) for the client ID to download the client secret JSON file (client_secret_<client-id>.json).  Save the file.
 
 
+## Prepare Raspberry Pi
 
+### Install LibreELEC
+### Enable Audio Output
+### Install Docker
+### Install Portainer
+
+## Install and Configure Google Assistant
