@@ -10,11 +10,6 @@ RUN apt-get -qq install --no-install-recommends -y \
       alsa-utils \
       python3 \
       python3-pip 
-#      python3-dev \
-#      gcc \
-#      portaudio19-dev \
-#      libffi-dev \
-#      libssl-dev
 
 # Upgrade pip and setuptools
 RUN pip3 install -q pip setuptools --upgrade
@@ -30,13 +25,17 @@ RUN apt-get -qq remove -y --purge python3-pip python3-dev \
 
 # Copy data
 COPY asoundrc.config /root/.asoundrc
+
 COPY GA.sh  /root
 RUN chmod +x /root/GA.sh
 
+COPY installCred.sh /root
+RUN chmod +x /root/installCred.sh
+
+RUN [ "cross-build-end" ]
+
 # Run google-assistant
 CMD /root/GA.sh
-    
-RUN [ "cross-build-end" ]
 
 # Common directory
 VOLUME /root/.config/google-oauthlib-tool
