@@ -17,7 +17,7 @@ RUN pip3 install -q --upgrade google-assistant-library \
     && pip3 install -q --upgrade google-auth-oauthlib[tool]
 
 # cleanup
-RUN apt-get -qq remove -y --purge python3-pip python3-dev \
+RUN apt-get -qq remove -y --purge python3-pip \
     && apt-get -qq autoremove -y \
     && rm -rf /var/lib/apt/lists/*
 
