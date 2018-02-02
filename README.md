@@ -6,7 +6,7 @@ Docker build for Google Assistant for Raspberry Pi
 A Google Developer Project gives your device access to the Google Assistant API. The project tracks quota usage and gives you valuable metrics for the requests made from your device.
 
 To enable access to the Google Assistant API, do the following:
-[![Go to the Projects Page]](https://console.cloud.google.com/project)
+[[Go to the Projects Page]](https://console.cloud.google.com/project)
 
     In the Cloud Platform Console, go to the Projects page. Select an existing project or create a new project.
 
