@@ -1,7 +1,11 @@
 # GoogleAssistant
 Docker build for Google Assistant on Raspberry Pi.
 
-Intended for use with LibreELEC(Kodi) with Docker and Portainer addons, but not required.
+Built on Docker Hub using cross-build emulation (QEMU):
+
+https://hub.docker.com/r/obstruse/googleassistant/
+
+Intended for use on LibreELEC(Kodi) with Docker and Portainer addons, but not required.
 
 ## Hardware
 
@@ -11,9 +15,7 @@ Intended for use with LibreELEC(Kodi) with Docker and Portainer addons, but not 
 
 ## Configure a Google Developer Project
 
-A Google Developer Project gives your device access to the Google Assistant API. The project tracks quota usage and gives you valuable metrics for the requests made from your device.
-
-To enable access to the Google Assistant API, do the following:
+To create a Google Developer Project and enable access to the Google Assistant API, do the following:
 
 * In the Cloud Platform Console, go to the Projects page. Select an existing project or create a new project.
 
@@ -33,26 +35,28 @@ Create an OAuth Client ID with the following steps:
 
 * Click **Other** and give the client ID a name.
 
-* Click **Create**. A dialog box appears that shows you a client ID and secret. (No need to remember or save this, just close the dialog.)
+* Click **Create**. A dialog box appears that shows you a client ID and secret. Click **OK**
 
-* Click ⬇ (at the far right of screen) for the client ID to download the client secret JSON file (client_secret_<client-id>.json).  Save the file.
+* Click the download icon: *⬇* (at the far right of screen) for the client ID to download the client secret JSON file. (you may need to scroll the page to the right to see the icon) Save the file.
 
 
 ## Prepare Raspberry Pi
 
 ### Install LibreELEC
 
-Create an SD using NOOBS:
+Boot the Pi using LibreELEC from NOOBS:
 
 https://www.raspberrypi.org/downloads/noobs/
 
-or the LibreELEC installer:
+or using the LibreELEC installer:
 
 https://libreelec.tv/downloads/
 
-#### Enable SSH (on LibreELEC):
+#### Enable SSH
 
-* From the Kodi Confluence main menu, navigate to SYSTEM -> LibreELEC -> Services -> Enable SSH
+* Kodi main menu -> Add-ons -> LibreELEC Configuration -> Services -> Enable SSH
+
+![SSH](Images/ssh.png)
 
 #### Enable Audio Output
 
@@ -75,9 +79,69 @@ dtparam=audio=on
 
 Install the Docker add-on :
 
-* From the Kodi Confluence main menu, navigate to SYSTEM -> Add-ons -> Install from repository -> LibreELEC Add-ons -> Services -> Docker
+* Kodi main menu ->  Add-ons -> Install from repository 
+
+![Install from Repo](Images/installFromRep.png)
+
+* LibreELEC Add-ons -> Services -> Docker
+
+![Docker](Images/docker.png)
 
 Install the Portainer add-on:
+* LibreELEC Add-ons -> Add-on Repository -> LinuxServer.io's Docker Add-ons
+
+![Docker Repo](Images/dockerRepo.png)
+
+* Kodi main menu -> Add-ons -> Install from repository 
+* LinuxServer.io's Docker Add-ons -> Services -> Portainer
+
+![Portainer](Images/portainer.png)
+
 
 
 ## Install and Configure Google Assistant
+
+Access Portainer at:  http://192.168.1.12:9000 (replace the IP with the address of your Raspberry Pi)
+
+![Dashboard](Images/dashboard.png)
+
+### Deploy Container
+
+* Containers -> Add container
+  * Container name: GoogleAssistant
+  * Image configuration Name: obstruse/googleassistant
+  * Disable Access control
+  * Console:  Interactive & TTY
+  * Restart policy: Unless stopped
+  * Runtime & Resources: add device:  /dev/snd
+* Click **Deploy the container**
+
+![Container-1](Images/container1.png)
+![Restart Policy](Images/restartpolicy.png)
+![Resources](Images/resource.png)
+
+### Install Credentials
+
+* Click on the container name and select ">_ Console"
+* click Connect
+* In the console window, enter:
+```
+/root/installCred.sh
+```
+![Client Secret](Images/clientsecret.png)
+
+* Paste the contents of the client_secret.json file saved at the beginning of the proceedure
+* Copy the URL displayed in the console window and paste it in a browser
+* Copy and paste the returned access code into the console window
+* Restart the container
+
+
+## Audio Output
+
+The Raspberry Pi automatically selects either HDMI or speaker jack for auto output, depending on what's available at boot time. If both are available, it defaults to HDMI.  If you want to use the speaker jack, unplug the HDMI cable and reboot.  Or, enter this into the console:
+```
+amixer cset numid=3 1
+```
+Setting will reset back to HDMI at the next boot.
+
+
