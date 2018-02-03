@@ -15,25 +15,25 @@ A Google Developer Project gives your device access to the Google Assistant API.
 
 To enable access to the Google Assistant API, do the following:
 
-In the Cloud Platform Console, go to the Projects page. Select an existing project or create a new project.
+* In the Cloud Platform Console, go to the Projects page. Select an existing project or create a new project.
 
 [[Go to the Projects Page]](https://console.cloud.google.com/project)
 
-Enable the Google Assistant API on the project you selected (see the Terms of Service).
+* Enable the Google Assistant API on the project you selected (see the Terms of Service).
 
 [[Enable the API]](https://console.developers.google.com/apis/api/embeddedassistant.googleapis.com/overview)
 
-Click **Enable.**
+* Click **Enable.**
 
 Create an OAuth Client ID with the following steps:
 
 * Create the client ID.  [[Create an OAuth Client ID]](https://console.developers.google.com/apis/credentials/oauthclient)
 
-* You may need to set a product name for the product consent screen. On the OAuth consent screen tab, give the product a name and click Save.
+* You may need to set a product name for the product consent screen. On the OAuth consent screen tab, give the product a name and click **Save**.
 
-* Click Other and give the client ID a name.
+* Click **Other** and give the client ID a name.
 
-* Click Create. A dialog box appears that shows you a client ID and secret. (No need to remember or save this, just close the dialog.)
+* Click **Create**. A dialog box appears that shows you a client ID and secret. (No need to remember or save this, just close the dialog.)
 
 * Click ⬇ (at the far right of screen) for the client ID to download the client secret JSON file (client_secret_<client-id>.json).  Save the file.
 
@@ -41,8 +41,43 @@ Create an OAuth Client ID with the following steps:
 ## Prepare Raspberry Pi
 
 ### Install LibreELEC
-### Enable Audio Output
-### Install Docker
-### Install Portainer
+
+Create an SD using NOOBS:
+
+https://www.raspberrypi.org/downloads/noobs/
+
+or the LibreELEC installer:
+
+https://libreelec.tv/downloads/
+
+#### Enable SSH (on LibreELEC):
+
+* From the Kodi Confluence main menu, navigate to SYSTEM -> LibreELEC -> Services -> Enable SSH
+
+#### Enable Audio Output
+
+* Connect using SSH and edit the boot config:
+
+```
+mount -o remount,rw /flash
+vi /flash/config.txt
+```
+
+* Add this parameter:
+
+```
+dtparam=audio=on
+```
+
+* Reboot
+
+### Install Add-ons:
+
+Install the Docker add-on :
+
+* From the Kodi Confluence main menu, navigate to SYSTEM -> Add-ons -> Install from repository -> LibreELEC Add-ons -> Services -> Docker
+
+Install the Portainer add-on:
+
 
 ## Install and Configure Google Assistant
