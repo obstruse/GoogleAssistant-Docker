@@ -138,10 +138,27 @@ Access Portainer at:  http://192.168.1.12:9000 (replace the IP with the address 
 
 ## Audio Output
 
-The Raspberry Pi automatically selects either HDMI or speaker jack for auto output, depending on what's available at boot time. If both are available, it defaults to HDMI.  If you want to use the speaker jack, unplug the HDMI cable and reboot.  Or, enter this into the console:
+### Volume
+
+The output audio level is set to 60% after installation.  To increase the volume, say the following:
+```
+"Hey Google, set volume to maximum"
+```
+
+### Output Device
+
+The Raspberry Pi automatically selects either HDMI or speaker jack for audio output, depending on what's available at boot time. If both are available, it defaults to HDMI.  To force it to always use the speaker jack:
+* Connect using SSH and edit/create autostart.sh:
+```
+vi /storage/.config/autostart.sh
+```
+* Add this line:
 ```
 amixer cset numid=3 1
 ```
-Setting will reset back to HDMI at the next boot.
+* Reboot
+
+Google Assistant will use the speaker jack for output, and Kodi will continue to use HDMI
+
 
 
