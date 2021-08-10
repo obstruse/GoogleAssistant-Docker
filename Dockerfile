@@ -1,4 +1,4 @@
-FROM resin/armv7hf-debian:jessie
+FROM balenalib/armv7hf-debian:buster
 
 RUN [ "cross-build-start" ]
 
@@ -30,10 +30,10 @@ RUN chmod +x /root/GA.sh
 COPY installCred.sh /root
 RUN chmod +x /root/installCred.sh
 
-RUN [ "cross-build-end" ]
-
 # Run google-assistant
 CMD /root/GA.sh
 
 # Persistent directory
 VOLUME /root/.config/google-oauthlib-tool
+
+RUN [ "cross-build-end" ]

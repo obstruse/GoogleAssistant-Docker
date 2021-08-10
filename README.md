@@ -1,16 +1,15 @@
 # GoogleAssistant
 Docker build for Google Assistant on Raspberry Pi.
 
-Built on Docker Hub using cross-build emulation (QEMU):
+https://github.com/obstruse/GoogleAssistant-Docker<br>
+https://hub.docker.com/r/obstruse/googleassistant
 
-https://hub.docker.com/r/obstruse/googleassistant/
-
-Intended for use on LibreELEC(Kodi) with Docker and Portainer addons, but not required.
+Intended for use on LibreELEC(Kodi) with Docker and Portainer addons.
 
 ## Hardware
 
-- Raspberry Pi 3 (https://www.adafruit.com/product/3055)
-- USB microphone, (e.g. https://www.adafruit.com/product/3367)
+- Raspberry Pi 3 (e.g.: https://www.adafruit.com/product/3776)
+- USB microphone (e.g.: https://www.adafruit.com/product/3367)
 
 
 ## Configure a Google Developer Project
@@ -44,9 +43,9 @@ Create an OAuth Client ID with the following steps:
 
 ### Install LibreELEC
 
-Boot the Pi using LibreELEC from NOOBS:
+Boot the Pi using LibreELEC from PINN (PINN Is Not NOOBS):
 
-https://www.raspberrypi.org/downloads/noobs/
+https://sourceforge.net/projects/pinn/
 
 or using the LibreELEC installer:
 
@@ -56,7 +55,7 @@ https://libreelec.tv/downloads/
 
 * Kodi main menu -> Add-ons -> LibreELEC Configuration -> Services -> Enable SSH
 
-![SSH](Images/ssh.png)
+![SSH](http://github.com/obstruse/GoogleAssistant-Docker/raw/master/Images/ssh.png "SSH")
 
 #### Enable Audio Output
 
@@ -81,21 +80,21 @@ Install the Docker add-on :
 
 * Kodi main menu ->  Add-ons -> Install from repository 
 
-![Install from Repo](Images/installFromRep.png)
+![Install from Repo](http://github.com/obstruse/GoogleAssistant-Docker/raw/master/Images/installFromRep.png "Install from Repo")
 
 * LibreELEC Add-ons -> Services -> Docker
 
-![Docker](Images/docker.png)
+![Docker](http://github.com/obstruse/GoogleAssistant-Docker/raw/master/Images/docker.png "Docker")
 
 Install the Portainer add-on:
 * LibreELEC Add-ons -> Add-on Repository -> LinuxServer.io's Docker Add-ons
 
-![Docker Repo](Images/dockerRepo.png)
+![Docker Repo](http://github.com/obstruse/GoogleAssistant-Docker/raw/master/Images/dockerRepo.png "Docker Repo")
 
 * Kodi main menu -> Add-ons -> Install from repository 
 * LinuxServer.io's Docker Add-ons -> Services -> Portainer
 
-![Portainer](Images/portainer.png)
+![Portainer](http://github.com/obstruse/GoogleAssistant-Docker/raw/master/Images/portainer.png "Portainer")
 
 
 
@@ -103,7 +102,7 @@ Install the Portainer add-on:
 
 Access Portainer at:  http://192.168.1.12:9000 (replace the IP with the address of your Raspberry Pi)
 
-![Dashboard](Images/dashboard.png)
+![Dashboard](http://github.com/obstruse/GoogleAssistant-Docker/raw/master/Images/dashboard.png "Dashboard")
 
 ### Deploy Container
 
@@ -116,9 +115,9 @@ Access Portainer at:  http://192.168.1.12:9000 (replace the IP with the address 
   * Runtime & Resources: add device:  /dev/snd
 * Click **Deploy the container**
 
-![Container-1](Images/container1.png)
-![Restart Policy](Images/restartpolicy.png)
-![Resources](Images/resource.png)
+![Container-1](http://github.com/obstruse/GoogleAssistant-Docker/raw/master/Images/container1.png "Container-1")
+![Restart Policy](http://github.com/obstruse/GoogleAssistant-Docker/raw/master/Images/restartpolicy.png "Restart Policy")
+![Resources](http://github.com/obstruse/GoogleAssistant-Docker/raw/master/Images/resource.png "Resources")
 
 ### Install Credentials
 
@@ -128,7 +127,7 @@ Access Portainer at:  http://192.168.1.12:9000 (replace the IP with the address 
 ```
 /root/installCred.sh
 ```
-![Client Secret](Images/clientsecret.png)
+![Client Secret](http://github.com/obstruse/GoogleAssistant-Docker/raw/master/Images/clientsecret.png "Client Secret")
 
 * Paste the contents of the client_secret.json file saved at the beginning of the proceedure
 * Copy the URL displayed in the console window and paste it in a browser
