@@ -55,7 +55,7 @@ https://libreelec.tv/downloads/
 
 * Kodi main menu -> Add-ons -> LibreELEC Configuration -> Services -> Enable SSH
 
-![SSH](http://github.com/obstruse/GoogleAssistant-Docker/raw/master/Images/ssh.png "SSH")
+![SSH](https://github.com/obstruse/GoogleAssistant-Docker/raw/master/Images/ssh.png "SSH")
 
 #### Enable Audio Output
 
@@ -80,21 +80,21 @@ Install the Docker add-on :
 
 * Kodi main menu ->  Add-ons -> Install from repository 
 
-![Install from Repo](http://github.com/obstruse/GoogleAssistant-Docker/raw/master/Images/installFromRep.png "Install from Repo")
+![Install from Repo](https://github.com/obstruse/GoogleAssistant-Docker/raw/master/Images/installFromRep.png "Install from Repo")
 
 * LibreELEC Add-ons -> Services -> Docker
 
-![Docker](http://github.com/obstruse/GoogleAssistant-Docker/raw/master/Images/docker.png "Docker")
+![Docker](https://github.com/obstruse/GoogleAssistant-Docker/raw/master/Images/docker.png "Docker")
 
 Install the Portainer add-on:
 * LibreELEC Add-ons -> Add-on Repository -> LinuxServer.io's Docker Add-ons
 
-![Docker Repo](http://github.com/obstruse/GoogleAssistant-Docker/raw/master/Images/dockerRepo.png "Docker Repo")
+![Docker Repo](https://github.com/obstruse/GoogleAssistant-Docker/raw/master/Images/dockerRepo.png "Docker Repo")
 
 * Kodi main menu -> Add-ons -> Install from repository 
 * LinuxServer.io's Docker Add-ons -> Services -> Portainer
 
-![Portainer](http://github.com/obstruse/GoogleAssistant-Docker/raw/master/Images/portainer.png "Portainer")
+![Portainer](https://github.com/obstruse/GoogleAssistant-Docker/raw/master/Images/portainer.png "Portainer")
 
 
 
@@ -102,7 +102,7 @@ Install the Portainer add-on:
 
 Access Portainer at:  http://192.168.1.12:9000 (replace the IP with the address of your Raspberry Pi)
 
-![Dashboard](http://github.com/obstruse/GoogleAssistant-Docker/raw/master/Images/dashboard.png "Dashboard")
+![Dashboard](https://github.com/obstruse/GoogleAssistant-Docker/raw/master/Images/dashboard.png "Dashboard")
 
 ### Deploy Container
 
@@ -115,9 +115,9 @@ Access Portainer at:  http://192.168.1.12:9000 (replace the IP with the address 
   * Runtime & Resources: add device:  /dev/snd
 * Click **Deploy the container**
 
-![Container-1](http://github.com/obstruse/GoogleAssistant-Docker/raw/master/Images/container1.png "Container-1")
-![Restart Policy](http://github.com/obstruse/GoogleAssistant-Docker/raw/master/Images/restartpolicy.png "Restart Policy")
-![Resources](http://github.com/obstruse/GoogleAssistant-Docker/raw/master/Images/resource.png "Resources")
+![Container-1](https://github.com/obstruse/GoogleAssistant-Docker/raw/master/Images/container1.png "Container-1")
+![Restart Policy](https://github.com/obstruse/GoogleAssistant-Docker/raw/master/Images/restartpolicy.png "Restart Policy")
+![Resources](https://github.com/obstruse/GoogleAssistant-Docker/raw/master/Images/resource.png "Resources")
 
 ### Install Credentials
 
@@ -127,7 +127,7 @@ Access Portainer at:  http://192.168.1.12:9000 (replace the IP with the address 
 ```
 /root/installCred.sh
 ```
-![Client Secret](http://github.com/obstruse/GoogleAssistant-Docker/raw/master/Images/clientsecret.png "Client Secret")
+![Client Secret](https://github.com/obstruse/GoogleAssistant-Docker/raw/master/Images/clientsecret.png "Client Secret")
 
 * Paste the contents of the client_secret.json file saved at the beginning of the proceedure
 * Copy the URL displayed in the console window and paste it in a browser
